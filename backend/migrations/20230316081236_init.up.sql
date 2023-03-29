@@ -1,10 +1,16 @@
 -- Add up migration script here
 
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 CREATE TABLE
     IF NOT EXISTS feedbacks (
-        id CHAR(36) PRIMARY KEY NOT NULL,
+        id UUID PRIMARY KEY NOT NULL DEFAULT (uuid_generate_v4()),
         rating INTEGER NOT NULL,
-        comment VARCHAR(255) NOT NULL UNIQUE,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        text TEXT NOT NULL UNIQUE,
+        created_at TIMESTAMP
+        WITH
+            TIME ZONE DEFAULT NOW(),
+            updated_at TIMESTAMP
+        WITH
+            TIME ZONE DEFAULT NOW()
     );

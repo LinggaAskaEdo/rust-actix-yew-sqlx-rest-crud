@@ -14,11 +14,11 @@ pub struct ParamOptions {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct CreateFeedbackSchema {
     pub rating: i32,
-    pub comment: String,
+    pub text: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct UpdateFeedbackSchema {
     pub rating: Option<i32>,
-    pub comment: Option<String>,
+    pub text: Option<String>,
 }

@@ -1,0 +1,6 @@
+LINK: 
+  https://codevoweb.com/build-full-stack-app-with-rust-yew-and-actix-web/
+RUN: 
+  cd backend
+  cargo install sqlx-cli
+  sqlx migrate ru
